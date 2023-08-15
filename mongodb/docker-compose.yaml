@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mongodb:
+    container_name: mongodb
+    image: mongodb/mongodb-community-server:6.0-ubi8
+    restart: always
+    expose: 
+      - "27017"
+    ports: 
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=user
+      - MONGO_INITDB_ROOT_PASSWORD=test
+    volumes:
+      - ./db/sql:/docker-entrypoint-initdb.d/
