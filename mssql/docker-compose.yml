@@ -1,0 +1,15 @@
+version: "3"
+services:
+  db: 
+    image: "mcr.microsoft.com/mssql/server:2022-latest"
+    container_name: "mssql"
+    user: "root"
+    restart: "always"
+    ports: 
+      - "1433:1433"
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "test1234@"
+      MSSQL_COLLATION: "Korean_Wansung_CI_AI"
+    volumes:
+      - "./db/:/var/opt/mssql/data"
